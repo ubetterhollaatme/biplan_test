@@ -34,9 +34,9 @@ services:
         container_name: pgsql_testcase
         image: postgres:10.1
         environment:
-            POSTGRES_DB: ${DB_DATABASE}
-            POSTGRES_USER: ${DB_USERNAME}
-            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            POSTGRES_DB: testcase
+            POSTGRES_USER: testcase
+            POSTGRES_PASSWORD: testcase
             PGDATA: "/var/lib/postgresql/data/testcase"
         ports:
             - "5432:5432"
