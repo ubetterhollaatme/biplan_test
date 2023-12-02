@@ -1,6 +1,7 @@
 version: '3.7'
 
 services:
+
     nginx_testcase:
         container_name: nginx_testcase
         build:
@@ -10,12 +11,17 @@ services:
             - "99:99"
         volumes:
             - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-            - ./:/var/www/html:z
+            - ./project/:/var/www/html:z
         depends_on:
             - php_testcase
         networks:
             - project_testcase
-
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:99"]
+            interval: 10s
+            timeout: 10s
+            retries: 50
+            
     php_testcase:
         container_name: php_testcase
         build:
@@ -23,10 +29,26 @@ services:
             dockerfile: docker/php/Dockerfile
         volumes:
             - ./docker/php/php.ini:/usr/local/etc/php/php.ini
-            - ./:/var/www/html:z
+            - ./project/:/var/www/html:z
         depends_on:
             pgsql_testcase:
                 condition: service_healthy
+        networks:
+            - project_testcase
+
+    queuer_testcase:
+        container_name: queuer_testcase
+        build:
+            context: .
+            dockerfile: docker/queuer/Dockerfile
+        volumes:
+            - ./project/:/var/www/html:z
+            - ./docker/queuer/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+        depends_on:
+            nginx_testcase:
+                condition: service_healthy
+        restart: on-failure
+        tty: true
         networks:
             - project_testcase
 
@@ -34,14 +56,13 @@ services:
         container_name: pgsql_testcase
         image: postgres:10.1
         environment:
-            POSTGRES_DB: testcase
-            POSTGRES_USER: testcase
-            POSTGRES_PASSWORD: testcase
-            PGDATA: "/var/lib/postgresql/data/testcase"
+            POSTGRES_DB: ${DB_DATABASE}
+            POSTGRES_USER: ${DB_USERNAME}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            PGDATA: "/var/lib/postgresql/data/${DB_DATABASE}"
         ports:
             - "5432:5432"
         volumes:
-            - ./docker/provision/pgsql/init:/docker-entrypoint-initdb.d
             - pgsql_testcase:/var/lib/postgresql/data
         healthcheck:
             test: ["CMD-SHELL", "pg_isready -U testcase -d testcase"]
@@ -49,6 +70,18 @@ services:
             timeout: 5s
             retries: 5
             start_period: 10s
+        networks:
+            - project_testcase
+
+    adminer_testcase:
+        container_name: adminer_testcase
+        image: adminer
+        restart: always
+        depends_on:
+            pgsql_testcase:
+                condition: service_healthy
+        ports:
+          - 8989:8080
         networks:
             - project_testcase
 

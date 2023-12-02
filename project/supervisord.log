@@ -1,0 +1,75 @@
+2023-12-02 20:17:55,763 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2023-12-02 20:17:55,765 INFO daemonizing the supervisord process
+2023-12-02 20:17:55,765 INFO supervisord started with pid 9717
+2023-12-02 20:17:56,769 INFO spawned: 'laravel-worker_00' with pid 9718
+2023-12-02 20:17:56,771 INFO spawned: 'laravel-worker_01' with pid 9719
+2023-12-02 20:17:56,773 INFO spawned: 'laravel-worker_02' with pid 9720
+2023-12-02 20:17:56,774 INFO spawned: 'laravel-worker_03' with pid 9721
+2023-12-02 20:17:56,775 INFO spawned: 'laravel-worker_04' with pid 9722
+2023-12-02 20:17:56,776 INFO spawned: 'laravel-worker_05' with pid 9723
+2023-12-02 20:17:56,777 INFO spawned: 'laravel-worker_06' with pid 9724
+2023-12-02 20:17:56,779 INFO spawned: 'laravel-worker_07' with pid 9725
+2023-12-02 20:17:57,073 WARN exited: laravel-worker_01 (exit status 1; not expected)
+2023-12-02 20:17:57,073 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2023-12-02 20:17:57,073 WARN exited: laravel-worker_04 (exit status 1; not expected)
+2023-12-02 20:17:57,074 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2023-12-02 20:17:57,076 WARN exited: laravel-worker_02 (exit status 1; not expected)
+2023-12-02 20:17:57,079 WARN exited: laravel-worker_07 (exit status 1; not expected)
+2023-12-02 20:17:57,079 WARN exited: laravel-worker_05 (exit status 1; not expected)
+2023-12-02 20:17:57,081 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2023-12-02 20:17:58,084 INFO spawned: 'laravel-worker_00' with pid 9758
+2023-12-02 20:17:58,085 INFO spawned: 'laravel-worker_01' with pid 9759
+2023-12-02 20:17:58,087 INFO spawned: 'laravel-worker_02' with pid 9760
+2023-12-02 20:17:58,088 INFO spawned: 'laravel-worker_03' with pid 9761
+2023-12-02 20:17:58,089 INFO spawned: 'laravel-worker_04' with pid 9762
+2023-12-02 20:17:58,091 INFO spawned: 'laravel-worker_05' with pid 9763
+2023-12-02 20:17:58,093 INFO spawned: 'laravel-worker_06' with pid 9764
+2023-12-02 20:17:58,094 INFO spawned: 'laravel-worker_07' with pid 9765
+2023-12-02 20:17:58,384 WARN exited: laravel-worker_01 (exit status 1; not expected)
+2023-12-02 20:17:58,389 WARN exited: laravel-worker_02 (exit status 1; not expected)
+2023-12-02 20:17:58,389 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2023-12-02 20:17:58,390 WARN exited: laravel-worker_05 (exit status 1; not expected)
+2023-12-02 20:17:58,390 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2023-12-02 20:17:58,390 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2023-12-02 20:17:58,391 WARN exited: laravel-worker_04 (exit status 1; not expected)
+2023-12-02 20:17:58,391 WARN exited: laravel-worker_07 (exit status 1; not expected)
+2023-12-02 20:18:00,395 INFO spawned: 'laravel-worker_00' with pid 9798
+2023-12-02 20:18:00,397 INFO spawned: 'laravel-worker_01' with pid 9799
+2023-12-02 20:18:00,398 INFO spawned: 'laravel-worker_02' with pid 9800
+2023-12-02 20:18:00,400 INFO spawned: 'laravel-worker_03' with pid 9801
+2023-12-02 20:18:00,402 INFO spawned: 'laravel-worker_04' with pid 9802
+2023-12-02 20:18:00,404 INFO spawned: 'laravel-worker_05' with pid 9803
+2023-12-02 20:18:00,406 INFO spawned: 'laravel-worker_06' with pid 9804
+2023-12-02 20:18:00,408 INFO spawned: 'laravel-worker_07' with pid 9805
+2023-12-02 20:18:00,765 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2023-12-02 20:18:00,776 WARN exited: laravel-worker_02 (exit status 1; not expected)
+2023-12-02 20:18:00,784 WARN exited: laravel-worker_01 (exit status 1; not expected)
+2023-12-02 20:18:00,785 WARN exited: laravel-worker_05 (exit status 1; not expected)
+2023-12-02 20:18:00,787 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2023-12-02 20:18:00,790 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2023-12-02 20:18:00,794 WARN exited: laravel-worker_07 (exit status 1; not expected)
+2023-12-02 20:18:00,798 WARN exited: laravel-worker_04 (exit status 1; not expected)
+2023-12-02 20:18:03,804 INFO spawned: 'laravel-worker_00' with pid 9839
+2023-12-02 20:18:03,805 INFO spawned: 'laravel-worker_01' with pid 9840
+2023-12-02 20:18:03,807 INFO spawned: 'laravel-worker_02' with pid 9841
+2023-12-02 20:18:03,808 INFO spawned: 'laravel-worker_03' with pid 9842
+2023-12-02 20:18:03,809 INFO spawned: 'laravel-worker_04' with pid 9843
+2023-12-02 20:18:03,811 INFO spawned: 'laravel-worker_05' with pid 9844
+2023-12-02 20:18:03,812 INFO spawned: 'laravel-worker_06' with pid 9845
+2023-12-02 20:18:03,814 INFO spawned: 'laravel-worker_07' with pid 9846
+2023-12-02 20:18:04,115 WARN exited: laravel-worker_02 (exit status 1; not expected)
+2023-12-02 20:18:04,115 INFO gave up: laravel-worker_02 entered FATAL state, too many start retries too quickly
+2023-12-02 20:18:04,115 WARN exited: laravel-worker_01 (exit status 1; not expected)
+2023-12-02 20:18:04,115 WARN exited: laravel-worker_04 (exit status 1; not expected)
+2023-12-02 20:18:04,116 INFO gave up: laravel-worker_01 entered FATAL state, too many start retries too quickly
+2023-12-02 20:18:04,116 INFO gave up: laravel-worker_04 entered FATAL state, too many start retries too quickly
+2023-12-02 20:18:04,116 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2023-12-02 20:18:04,118 INFO gave up: laravel-worker_03 entered FATAL state, too many start retries too quickly
+2023-12-02 20:18:04,119 WARN exited: laravel-worker_05 (exit status 1; not expected)
+2023-12-02 20:18:04,120 INFO gave up: laravel-worker_05 entered FATAL state, too many start retries too quickly
+2023-12-02 20:18:04,121 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2023-12-02 20:18:04,123 INFO gave up: laravel-worker_00 entered FATAL state, too many start retries too quickly
+2023-12-02 20:18:04,123 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2023-12-02 20:18:04,124 INFO gave up: laravel-worker_06 entered FATAL state, too many start retries too quickly
+2023-12-02 20:18:04,125 WARN exited: laravel-worker_07 (exit status 1; not expected)
+2023-12-02 20:18:05,126 INFO gave up: laravel-worker_07 entered FATAL state, too many start retries too quickly

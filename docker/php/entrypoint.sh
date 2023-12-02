@@ -5,7 +5,7 @@ composer install
 cat ./.env.template > ./.env
 
 php artisan key:generate
-php artisan migrate
+php artisan migrate:refresh
 
 chown -R www-data:www-data /var/www/html
 
