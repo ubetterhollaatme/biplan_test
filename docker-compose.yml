@@ -18,9 +18,9 @@ services:
             - project_testcase
         healthcheck:
             test: ["CMD", "curl", "-f", "http://localhost:99"]
-            interval: 10s
-            timeout: 10s
-            retries: 50
+            interval: 5s
+            timeout: 5s
+            retries: 10
             
     php_testcase:
         container_name: php_testcase
