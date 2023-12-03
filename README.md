@@ -13,7 +13,7 @@
 4. Вызываем docker-compose build --no-cache
 5. Дожидаемся успешного завершения билда
 6. Вызываем docker-compose up -d
-7. Дожидаемся успешного подъема всех контейнеров
+7. Дожидаемся успешного старта всех контейнеров (Статус контейнера: Started/Healthy)
 8. Вызываем docker exec -it php_testcase bash
 9. Вызываем php artisan command:loadcsv --file=./storage/file.csv (можно залить свой файл и указать путь к нему)
 10. Переходим по [ссылке](http://localhost:8989/?pgsql=pgsql_testcase&username=testcase&db=testcase&ns=public&select=jobs) (добавил в проект adminer, так вам не придется подключать IDE к базе)
