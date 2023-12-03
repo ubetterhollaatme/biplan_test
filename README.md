@@ -1,4 +1,4 @@
-# Biplan Test Task
+# Biplane24 Test Task
 
 ### Проверено под:
 #### macOS (Sonoma 14.0) + docker desktop (docker v24.0.5 build ced0996 & docker-compose v2.20.2-desktop.1)
