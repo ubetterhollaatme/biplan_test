@@ -2,8 +2,9 @@
 
 namespace App\Helpers;
 
+use Exception;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Facades\DB;
 use Spatie\SimpleExcel\SimpleExcelReader;
 use App\Models\Organization;
 use App\Models\Employee;
@@ -13,27 +14,54 @@ class EmployeesHelper
 {
     protected const PASSED_ENCODING = 'UTF-8';
 
+    /**
+     * @var string $path
+     * @return void
+     *
+     * @throws Exception
+     * @throws FileNotFoundException
+     */
     public static function loadFromCSV(string $path): void
     {
-        $fs = new Filesystem;
+        static::checkEncoding($path);
+        static::parseFile($path);
+    }
 
+    /**
+     * @var string $path
+     * @return void
+     *
+     * @throws FileNotFoundException
+     * @throws Exception
+     */
+    protected static function checkEncoding(string $path): void
+    {
         /**
          * Не делаю проверку на существование файла,
          * т.к. в методе $fs->get() это уже происходит
          */
-        if (mb_detect_encoding($fs->get($path, true)) !== static::PASSED_ENCODING) {
-            throw new \Exception(
-                'Парсер обрабатывает только файлы в кодировке ' . static::PASSED_ENCODING
+        if (mb_detect_encoding((new Filesystem)->get($path, true)) !== static::PASSED_ENCODING) {
+            throw new Exception(
+                'Parser passes only files encoded by ' . static::PASSED_ENCODING
             );
         }
+    }
 
+    /**
+     * @var string $path
+     * @return void
+     *
+     * @throws Exception
+     */
+    protected static function parseFile(string $path): void
+    {
         SimpleExcelReader::create($path)->getRows()
             ->each(function (array $row): void {
                 if (empty($row['Название организации'])
                 || empty($row['email']
                 || empty($row['ФИО']))) {
-                    throw new \Exception(
-                        'Парсер обрабатывает только валидные файлы'
+                    throw new Exception(
+                        'Parser passes only valid files'
                     );
 
                 }

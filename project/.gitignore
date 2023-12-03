@@ -5,6 +5,7 @@
 /public/storage
 /storage/*.key
 /vendor
+supervisord.pid
 .env
 .env.backup
 .env.production
