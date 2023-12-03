@@ -1,6 +1,6 @@
 # Biplan Test Task
 
-## Проверено под WSL2 (win 10 pro docker desktop)
+## Проверено под macOS & WSL2 (win 10 pro docker desktop)
 
 ### Инструкция:
 
