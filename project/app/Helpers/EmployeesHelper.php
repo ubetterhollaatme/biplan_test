@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\DB;
 use Spatie\SimpleExcel\SimpleExcelReader;
 use App\Models\Organization;
@@ -10,10 +11,33 @@ use App\Jobs\CountOrganizationEmployees;
 
 class EmployeesHelper
 {
-    public static function loadFromCSV(string $path)
+    protected const PASSED_ENCODING = 'UTF-8';
+
+    public static function loadFromCSV(string $path): void
     {
+        $fs = new Filesystem;
+
+        /**
+         * Не делаю проверку на существование файла,
+         * т.к. в методе $fs->get() это уже происходит
+         */
+        if (mb_detect_encoding($fs->get($path, true)) !== static::PASSED_ENCODING) {
+            throw new \Exception(
+                'Парсер обрабатывает только файлы в кодировке ' . static::PASSED_ENCODING
+            );
+        }
+
         SimpleExcelReader::create($path)->getRows()
-            ->each(function (array $row) {
+            ->each(function (array $row): void {
+                if (empty($row['Название организации'])
+                || empty($row['email']
+                || empty($row['ФИО']))) {
+                    throw new \Exception(
+                        'Парсер обрабатывает только валидные файлы'
+                    );
+
+                }
+
                 $org = Organization::firstOrCreate([
                     'name' => $row['Название организации']
                 ]);
