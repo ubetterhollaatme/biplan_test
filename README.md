@@ -5,14 +5,16 @@
 ### Инструкция:
 
 1. Клонируем репозиторий
-2. Вызываем docker-compose up -d в корневом каталоге проекта
-3. Дожидаемся успешного подъема всех контейнеров
-4. Вызываем docker exec -it php_testcase bash
-5. Вызываем php artisan command:loadcsv --file=./storage/file.csv (можно залить свой файл и указать путь к нему)
-6. Переходим по ссылке http://localhost:8989/?pgsql=pgsql_testcase&username=testcase&db=testcase&ns=public&select=jobs
-7. Вводим пароль testcase
-8. Наблюдаем(Ctrl+R) за тем, как таблица jobs наполняется/пустеет (на всякий добавил в проект adminer, тк не придется подключать IDE к базе)
-9. Проверяем результат выполнения фоновых задач по ссылке http://localhost:8989/?pgsql=pgsql_testcase&username=testcase&db=testcase&ns=public&select=employees_count_in_org
+2. Открываем консоль, переходим в корневой каталог проекта
+3. Вызываем docker-compose build --no-cache
+4. Вызываем docker-compose up -d
+5. Дожидаемся успешного подъема всех контейнеров
+6. Вызываем docker exec -it php_testcase bash
+7. Вызываем php artisan command:loadcsv --file=./storage/file.csv (можно залить свой файл и указать путь к нему)
+8. Переходим по ссылке http://localhost:8989/?pgsql=pgsql_testcase&username=testcase&db=testcase&ns=public&select=jobs
+9. Вводим пароль testcase
+10. Наблюдаем(Ctrl+R) за тем, как таблица jobs наполняется/пустеет (на всякий добавил в проект adminer, тк не придется подключать IDE к базе)
+11. Проверяем результат выполнения фоновых задач по ссылке http://localhost:8989/?pgsql=pgsql_testcase&username=testcase&db=testcase&ns=public&select=employees_count_in_org
 
 ### Примечания:
 
