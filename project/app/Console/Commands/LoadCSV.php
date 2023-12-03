@@ -25,8 +25,7 @@ class LoadCSV extends Command
     public function handle(): void
     {
         try {
-            $parser = new EmployeesHelper();
-            $parser->loadFromCSV($this->option('file'));
+            EmployeesHelper::loadFromCSV($this->option('file'));
         } catch (Exception $e) {
             var_export([
                 $e->getMessage(),
