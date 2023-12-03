@@ -13,10 +13,10 @@
 7. Дожидаемся успешного подъема всех контейнеров
 8. Вызываем docker exec -it php_testcase bash
 9. Вызываем php artisan command:loadcsv --file=./storage/file.csv (можно залить свой файл и указать путь к нему)
-10. Переходим по ссылке http://localhost:8989/?pgsql=pgsql_testcase&username=testcase&db=testcase&ns=public&select=jobs (добавил в проект adminer, так вам не придется подключать IDE к базе)
+10. Переходим по [ссылке](http://localhost:8989/?pgsql=pgsql_testcase&username=testcase&db=testcase&ns=public&select=jobs) (добавил в проект adminer, так вам не придется подключать IDE к базе)
 11. Вводим пароль testcase и авторизуемся в интерфейсе
 12. Наблюдаем(Ctrl+R) за тем, как таблица jobs наполняется/пустеет
-13. Проверяем результат выполнения фоновых задач по ссылке http://localhost:8989/?pgsql=pgsql_testcase&username=testcase&db=testcase&ns=public&select=employees_count_in_org
+13. Проверяем результат выполнения фоновых задач по [ссылке](http://localhost:8989/?pgsql=pgsql_testcase&username=testcase&db=testcase&ns=public&select=employees_count_in_org)
 
 ### Примечания:
 
