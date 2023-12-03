@@ -1,6 +1,8 @@
 # Biplan Test Task
 
-Проверено под WSL2 (win 10 pro docker desktop)
+## Проверено под WSL2 (win 10 pro docker desktop)
+
+### Инструкция:
 
 1. Клонируем репозиторий
 2. Вызываем docker-compose up -d в корневом каталоге проекта
