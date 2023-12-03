@@ -2,7 +2,8 @@
 
 ### Проверено под:
 #### macOS (Sonoma 14.0) + docker desktop (docker v24.0.5 build ced0996 & docker-compose v2.20.2-desktop.1)
-#### WSL2 - Ubuntu distro (win 10 pro) + docker desktop
+#### WSL2 - Ubuntu distro (win 10 pro) + docker desktop (docker v24.0.6, build ed223bc & docker-compose v2.23.0-desktop.1)
+##### Остальное вшито в сборку
 
 ### Инструкция:
 
