@@ -7,19 +7,20 @@
 
 ### Инструкция:
 
-1. Клонируем репозиторий
-2. Открываем консоль
-3. Переходим в корневой каталог репозитория (cd <some_path>/biplan_test/)
-4. Вызываем docker-compose build --no-cache
-5. Дожидаемся успешного завершения билда
-6. Вызываем docker-compose up -d
-7. Дожидаемся успешного старта всех контейнеров (Статус контейнера: Started/Healthy)
-8. Вызываем docker exec -it php_testcase bash
-9. Вызываем php artisan command:loadcsv --file=./storage/file.csv (можно залить свой файл и указать путь к нему)
-10. Переходим по [ссылке](http://localhost:8989/?pgsql=pgsql_testcase&username=testcase&db=testcase&ns=public&select=jobs) (добавил в проект adminer, так вам не придется подключать IDE к базе)
-11. Вводим пароль testcase и входим в интерфейс
-12. Наблюдаем(Ctrl+R) за тем, как таблица jobs наполняется/пустеет
-13. Проверяем результат выполнения фоновых задач по [ссылке](http://localhost:8989/?pgsql=pgsql_testcase&username=testcase&db=testcase&ns=public&select=employees_count_in_org)
+1. Устанавливаем Docker Desktop (если не установлен)
+2. Клонируем репозиторий
+3. Открываем консоль
+4. Переходим в корневой каталог репозитория (cd <some_path>/biplan_test/)
+5. Вызываем docker-compose build --no-cache
+6. Дожидаемся успешного завершения билда
+7. Вызываем docker-compose up -d
+8. Дожидаемся успешного старта всех контейнеров (Статус контейнера: Started/Healthy)
+9. Вызываем docker exec -it php_testcase bash
+10. Вызываем php artisan command:loadcsv --file=./storage/file.csv (можно залить свой файл и указать путь к нему)
+11. Переходим по [ссылке](http://localhost:8989/?pgsql=pgsql_testcase&username=testcase&db=testcase&ns=public&select=jobs) (добавил в проект adminer, так вам не придется подключать IDE к базе)
+12. Вводим пароль testcase и входим в интерфейс
+13. Наблюдаем(Ctrl+R) за тем, как таблица jobs наполняется/пустеет
+14. Проверяем результат выполнения фоновых задач по [ссылке](http://localhost:8989/?pgsql=pgsql_testcase&username=testcase&db=testcase&ns=public&select=employees_count_in_org)
 
 ### Примечания:
 
