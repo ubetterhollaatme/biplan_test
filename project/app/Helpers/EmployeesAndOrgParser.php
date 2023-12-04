@@ -10,37 +10,45 @@ use App\Models\Organization;
 use App\Models\Employee;
 use App\Jobs\CountOrganizationEmployees;
 
-class EmployeesHelper
+class EmployeesAndOrgParser
 {
     protected const PASSED_ENCODING = 'UTF-8';
 
+    protected string $path;
+
     /**
-     * @var string $path
-     * @return void
-     *
-     * @throws Exception
-     * @throws FileNotFoundException
+     * @param string $path
      */
-    public static function loadFromCSV(string $path): void
+    public function __construct(string $path)
     {
-        static::checkEncoding($path);
-        static::parseFile($path);
+        $this->path = $path;
     }
 
     /**
-     * @var string $path
+     * @return void
+     *
+     * @throws Exception
+     * @throws FileNotFoundException
+     */
+    public function loadFromCSV(): void
+    {
+        $this->checkEncoding();
+        $this->parseFile();
+    }
+
+    /**
      * @return void
      *
      * @throws FileNotFoundException
      * @throws Exception
      */
-    protected static function checkEncoding(string $path): void
+    protected function checkEncoding(): void
     {
         /**
          * Не делаю проверку на существование файла,
          * т.к. в методе $fs->get() это уже происходит
          */
-        if (mb_detect_encoding((new Filesystem)->get($path, true)) !== static::PASSED_ENCODING) {
+        if (mb_detect_encoding((new Filesystem)->get($this->path, true)) !== static::PASSED_ENCODING) {
             throw new Exception(
                 'Parser passes only files encoded by ' . static::PASSED_ENCODING
             );
@@ -48,20 +56,19 @@ class EmployeesHelper
     }
 
     /**
-     * @var string $path
      * @return void
      *
      * @throws Exception
      */
-    protected static function parseFile(string $path): void
+    protected function parseFile(): void
     {
-        SimpleExcelReader::create($path)->getRows()
+        SimpleExcelReader::create($this->path)->getRows()
             ->each(function (array $row): void {
                 if (empty($row['Название организации'])
                 || empty($row['email']
                 || empty($row['ФИО']))) {
                     throw new Exception(
-                        'Parser passes only valid files'
+                        'Invalid row, abort.' . PHP_EOL . 'Rowdata: ' . PHP_EOL . var_export($row, true)
                     );
 
                 }

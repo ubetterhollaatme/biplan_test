@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Helpers\EmployeesHelper;
+use App\Helpers\EmployeesAndOrgParser;
 use Exception;
 
 class LoadCSV extends Command
@@ -25,14 +25,15 @@ class LoadCSV extends Command
     public function handle(): void
     {
         try {
-            EmployeesHelper::loadFromCSV($this->option('file'));
+            $parser = new EmployeesAndOrgParser($this->option('file'));
+            $parser->loadFromCSV();
         } catch (Exception $e) {
             var_export([
                 $e->getMessage(),
                 $e->getTraceAsString(),
             ]);
         } finally {
-            print('DONE' . PHP_EOL);
+            print(PHP_EOL . 'DONE' . PHP_EOL . PHP_EOL);
         }
     }
 }
